@@ -6,7 +6,7 @@ if: branch = main
 
 stages:
   - name: test
-  - name: deploy
+  #- name: deploy
 
 jobs:
   include:
