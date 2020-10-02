@@ -26,8 +26,8 @@ script:
 
 deploy:
   provider: script
+  on:
+    branch:
+      - main # ← new!
   script:
   - echo "deploy"
-  branches:    # ← new!
-    only:      # ← new!
-      - main # ← new!
