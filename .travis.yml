@@ -13,14 +13,14 @@ jobs:
   - language: minimal
     env:
     - TEST=testme
-  - language: minimal
+  - if: branch=main
+    language: minimal
     env:
     - TEST=branch_check
   allow_failures:
     - env: TEST=branch_check
 
 script:
-  if: branch=main
   - echo $TEST
   - echo $TRAVIS_BRANCH
 
