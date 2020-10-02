@@ -20,8 +20,9 @@ jobs:
     - env: TEST=branch_check
 
 script:
+  if: branch=main
   - echo $TEST
-    echo $TRAVIS_BRANCH
+  - echo $TRAVIS_BRANCH
 
 addons:
   ssh_known_hosts: bitbucket.org
