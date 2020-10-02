@@ -9,12 +9,10 @@ stages:
 
 jobs:
   include:
-  - if: branch = main
-    language: minimal
+  - /language: minimal
     env:
     - TEST=testme
-  - if: branch = main
-    language: minimal
+  - language: minimal
     env:
     - TEST=branch_check
   allow_failures:
