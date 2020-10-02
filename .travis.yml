@@ -1,4 +1,3 @@
-sudo: required
 dist: bionic
 python: "2.7.15"
 
@@ -14,12 +13,7 @@ jobs:
     language: minimal
     env:
     - TEST=testme
-    if: type = pull_request
-  - stage: test
-    language: minimal
-    env:
-    - TEST=branch_check
-  - stage: deploy
+    stage: deploy
     script: skip
     deploy:
       provider: script
@@ -28,6 +22,9 @@ jobs:
           - main # ← new!
       script:
       - echo "deploy"
+  - language: minimal
+    env:
+    - TEST=branch_check
   allow_failures:
     - env: TEST=branch_check
 
