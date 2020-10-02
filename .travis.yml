@@ -2,9 +2,10 @@ sudo: required
 dist: bionic
 python: "2.7.15"
 
+if: branch = main
+
 stages:
-  - name: script
-    if: branch = main
+  - name: script\
   - name: deploy
 
 jobs:
