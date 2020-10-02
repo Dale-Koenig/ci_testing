@@ -18,6 +18,14 @@ jobs:
     language: minimal
     env:
     - TEST=branch_check
+  - stage: deploy
+    deploy:
+      provider: script
+      on:
+        branch:
+          - main # ← new!
+      script:
+      - echo "deploy"
   allow_failures:
     - env: TEST=branch_check
 
@@ -25,10 +33,3 @@ script:
 - echo $TEST
 - echo $TRAVIS_BRANCH
 
-deploy:
-  provider: script
-  on:
-    branch:
-      - main # ← new!
-  script:
-  - echo "deploy"
