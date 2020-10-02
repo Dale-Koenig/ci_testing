@@ -2,19 +2,18 @@ sudo: required
 dist: bionic
 python: "2.7.15"
 
+if: branch = main
+
 stages:
-  - name: script
-    if: branch = main
+  - name: script\
   - name: deploy
 
 jobs:
   include:
-  - if: branch = main
-    language: minimal
+  - language: minimal
     env:
     - TEST=testme
-  - if: branch = main
-    language: minimal
+  - language: minimal
     env:
     - TEST=branch_check
   allow_failures:
@@ -26,8 +25,8 @@ script:
 
 deploy:
   provider: script
+  on:
+    branch:
+      - main # ← new!
   script:
   - echo "deploy"
-  branches:    # ← new!
-    only:      # ← new!
-      - main # ← new!
