@@ -21,6 +21,7 @@ jobs:
     - TEST=branch_check
   - stage: deploy
     script: skip
+    if: type = push
     deploy:
       provider: script
       on:
