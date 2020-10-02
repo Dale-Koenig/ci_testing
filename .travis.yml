@@ -21,6 +21,7 @@ jobs:
 
 script:
   - echo $TEST
+    echo $TRAVIS_BRANCH
 
 addons:
   ssh_known_hosts: bitbucket.org
