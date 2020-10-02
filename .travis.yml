@@ -5,15 +5,17 @@ python: "2.7.15"
 if: branch = main
 
 stages:
-  - name: script\
+  - name: test
   - name: deploy
 
 jobs:
   include:
-  - language: minimal
+  - stage: test
+    language: minimal
     env:
     - TEST=testme
-  - language: minimal
+  - stage: test
+    language: minimal
     env:
     - TEST=branch_check
   allow_failures:
