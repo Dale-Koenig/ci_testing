@@ -19,6 +19,7 @@ jobs:
     env:
     - TEST=branch_check
   - stage: deploy
+    script: skip
     deploy:
       provider: script
       on:
