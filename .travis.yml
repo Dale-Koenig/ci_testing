@@ -1,0 +1,27 @@
+sudo: required
+dist: bionic
+python: "2.7.15"
+
+env:
+  global:
+    - ROS_DISTRO=melodic
+    - CI_SOURCE_PATH=$(pwd)
+    - CI_PARENT_DIR=.travis
+
+jobs:
+  include:
+  - language: minimal
+    env:
+    - TEST=testme
+  - language: minimal
+    env:
+    - TEST=branch_check
+  allow_failures:
+    - env: TEST=branch_check
+
+script:
+  - echo $TEST
+
+addons:
+  ssh_known_hosts: bitbucket.org
+
