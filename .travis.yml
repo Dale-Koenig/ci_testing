@@ -4,7 +4,7 @@ python: "2.7.15"
 
 stages:
   - name: deploy
-    if: branch=main
+    if: branch = main
 jobs:
   include:
   - language: minimal
@@ -17,9 +17,13 @@ jobs:
     - env: TEST=branch_check
 
 script:
-  - echo $TEST
-  - echo $TRAVIS_BRANCH
+- echo $TEST
+- echo $TRAVIS_BRANCH
 
 deploy:
+  provider: script
+  script:
   - echo "deploy"
-
+  branches:    # ← new!
+    only:      # ← new!
+      - master # ← new!
