@@ -3,8 +3,10 @@ dist: bionic
 python: "2.7.15"
 
 stages:
-  - name: deploy
+  - name: script
     if: branch = main
+  - name: deploy
+
 jobs:
   include:
   - language: minimal
@@ -26,4 +28,4 @@ deploy:
   - echo "deploy"
   branches:    # ← new!
     only:      # ← new!
-      - master # ← new!
+      - main # ← new!
