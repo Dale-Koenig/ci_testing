@@ -9,7 +9,7 @@ stages:
 
 jobs:
   include:
-  - /language: minimal
+  - language: minimal
     env:
     - TEST=testme
   - language: minimal
