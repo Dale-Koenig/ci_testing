@@ -31,4 +31,7 @@ jobs:
 script:
 - echo $TEST
 - echo $TRAVIS_BRANCH
+- echo -e "travis_fold:start:ABCDEF\033[33;1mGHIJKL\033[0m"
+- echo 'CONTENTCONTECTCONTECT'
+- echo -e "\ntravis_fold:end:ABCDEF\r"
 
